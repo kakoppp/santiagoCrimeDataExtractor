@@ -25,7 +25,7 @@ REQUEST_HEADERS: dict[str, str] = {
 }
 
 # Request throttling delay to prevent server overload (in seconds)
-REQUEST_DELAY_SECONDS: float = 5.0
+REQUEST_DELAY_SECONDS: float = 2.0
 
 DEFAULT_MAX_ITEMS_PER_QUERY: int = 100
 DEFAULT_LOOKBACK_DAYS: int = 90

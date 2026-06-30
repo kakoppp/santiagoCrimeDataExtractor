@@ -155,4 +155,39 @@ crimeRadar: list[tuple[str, str]] = [
     ("Seguridad General", "crimen organizado operacion santiago chile"),
     ("Seguridad General", "imputado formalizado juzgado santiago"),
     ("Seguridad General", "reincidente detenido santiago carabineros PDI"),
+
+    # ── Cobertura extra por comuna (Robo General)
+    ("Robo General", "robo detenido recoleta independencia santiago"),
+    ("Robo General", "robo detenido ñuñoa macul santiago"),
+    ("Robo General", "robo detenido la cisterna san ramón santiago"),
+    ("Robo General", "robo detenido renca quilicura santiago"),
+    ("Robo General", "robo detenido cerro navia lo prado santiago"),
+    ("Robo General", "robo detenido huechuraba conchalí santiago"),
+    ("Robo General", "robo detenido san joaquín pedro aguirre cerda"),
+    ("Robo General", "robo detenido estación central santiago"),
+
+    # ── Cobertura extra por comuna (Homicidio)
+    ("Homicidio", "homicidio la pintana el bosque santiago"),
+    ("Homicidio", "homicidio recoleta independencia santiago"),
+    ("Homicidio", "homicidio quilicura renca santiago"),
+    ("Homicidio", "homicidio cerro navia pudahuel santiago"),
+
+    # ── Cobertura extra por comuna (Narcotráfico)
+    ("Narcotráfico", "narcotrafico la pintana el bosque santiago"),
+    ("Narcotráfico", "narcotrafico cerro navia pudahuel santiago"),
+    ("Narcotráfico", "narcotrafico renca quilicura santiago"),
+
+    # ── Femicidio / VIF extra
+    ("VIF/Femicidio", "femicidio puente alto la florida santiago"),
+    ("VIF/Femicidio", "violencia intrafamiliar maipú san bernardo"),
+
+    # ── Robo Vehículo extra
+    ("Robo Vehiculo", "robo vehiculo ñuñoa providencia santiago"),
+    ("Robo Vehiculo", "robo vehiculo la florida puente alto"),
+
+    # ── Seguridad General extra
+    ("Seguridad General", "fiscalia investigacion santiago region metropolitana"),
+    ("Seguridad General", "corte de apelaciones condena santiago"),
+    ("Seguridad General", "balacera carabineros enfrentamiento santiago"),
+    ("Seguridad General", "operativo conjunto PDI carabineros santiago"),
 ]
