@@ -47,7 +47,7 @@ This installs `feedparser` (RSS reading), `beautifulsoup4` (HTML cleanup), and `
 python main.py
 
 # To get ~3000 articles
-python main.py --days 90 --window 5 --max 150
+python main.py --days 190 --window 5 --max 150
 
 # Just view results in the console, without saving a CSV
 python main.py --view

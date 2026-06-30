@@ -1,9 +1,5 @@
-# Orquesta las queries, ventanas temporales, deduplicación y retorna el DataFrame
-
 import time
-
 import pandas as pd
-
 from config.constants import REQUEST_DELAY_SECONDS
 from config.extract import crimeRadar
 from scraper.feed import gets_news
@@ -15,18 +11,6 @@ def run_pipeline(
     max_articles: int = 100,
     use_time_windows: bool = True,
 ) -> pd.DataFrame:
-    """
-    Runs the complete scraping pipeline across all search queries and time windows.
-
-    Args:
-        lookback_days: Number of days to look back.
-        window_size_days: Size of each time window in days.
-        max_articles: Maximum number of articles per query and time window.
-        use_time_windows: If False, performs a single search without date filters.
-
-    Returns:
-        A deduplicated DataFrame containing all collected articles.
-    """
 
     time_windows = (
         generate_time_windows(lookback_days, window_size_days)
@@ -34,66 +18,64 @@ def run_pipeline(
         else [(None, None)]
     )
 
+   
+    oldest_after = time_windows[-1][0] if use_time_windows and time_windows else None
+    newest_before = time_windows[0][1] if use_time_windows and time_windows else None
+
     print(f"Time windows: {len(time_windows)}")
     print(f"Defined queries: {len(crimeRadar)}")
-    print(f"Total requests: {len(crimeRadar) * len(time_windows)}\n")
+    print(f"Total requests: {len(crimeRadar)}  (1 por query, filtrado local)\n")
 
     all_articles: list[dict] = []
     processed_urls: set[str] = set()
 
-    total_requests = len(crimeRadar) * len(time_windows)
-    request_count = 0
+    total_requests = len(crimeRadar)
 
-    for crime_type, search_query in crimeRadar:
-        for after, before in time_windows:
-            request_count += 1
+    for request_count, (crime_type, search_query) in enumerate(crimeRadar, start=1):
 
-            time_range = f"{after or 'start'} → {before or 'today'}"
+        print(
+            f"[{request_count}/{total_requests}] "
+            f"{crime_type} | {oldest_after or 'start'} → {newest_before or 'today'}...",
+            end=" ",
+            flush=True,
+        )
 
-            print(
-                f"[{request_count}/{total_requests}] "
-                f"{crime_type} | {time_range}...",
-                end=" ",
-                flush=True,
+        try:
+            articles = gets_news(
+                query=search_query,
+                crime_type=crime_type,
+                max_items=max_articles,
+                after=oldest_after,
+                before=newest_before,
             )
 
-            try:
-                articles = gets_news(
-                    query=search_query,
-                    crime_type=crime_type,
-                    max_items=max_articles,
-                    after=after,
-                    before=before,
-                )
+            new_articles = [
+                article
+                for article in articles
+                if article["url"] not in processed_urls
+            ]
 
-                new_articles = [
-                    article
-                    for article in articles
-                    if article["url"] not in processed_urls
-                ]
+            processed_urls.update(
+                article["url"] for article in new_articles
+            )
 
-                processed_urls.update(
-                    article["url"] for article in new_articles
-                )
+            all_articles.extend(new_articles)
 
-                all_articles.extend(new_articles)
+            print(
+                f"{len(new_articles)} new "
+                f"(total: {len(all_articles)})"
+            )
 
-                print(
-                    f"{len(new_articles)} new "
-                    f"(total: {len(all_articles)})"
-                )
+        except Exception as exception:
+            print(f"ERROR: {exception}")
 
-            except Exception as exception:
-                print(f"ERROR: {exception}")
-
-            time.sleep(REQUEST_DELAY_SECONDS)
+        time.sleep(REQUEST_DELAY_SECONDS)
 
     if not all_articles:
         return pd.DataFrame()
 
     df = pd.DataFrame(all_articles)
 
-    # Second deduplication based on normalized title
     df["_title_key"] = (
         df["title"]
         .str.lower()

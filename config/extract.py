@@ -2,21 +2,38 @@
 # Pares (tipo_delito, término_de_búsqueda) para Google News RSS
 
 crimeRadar: list[tuple[str, str]] = [
-    # ── Robo Violento 
+    # ── Robo Violento
     ("Robo Violento", "robo asalto violento santiago chile"),
     ("Robo Violento", "asalto a mano armada santiago"),
     ("Robo Violento", "robo con violencia region metropolitana"),
     ("Robo Violento", "asaltaron víctima santiago chile"),
+    ("Robo Violento", "asalto celular santiago chile"),
+    ("Robo Violento", "robo mano armada las condes providencia"),
+    ("Robo Violento", "asalto cajero automatico santiago"),
+    ("Robo Violento", "robo violento puente alto maipú"),
+    ("Robo Violento", "victima asalto baleada santiago"),
+    ("Robo Violento", "motochorro asalto santiago chile"),
+    ("Robo Violento", "robo violento peñalolen la florida"),
+    ("Robo Violento", "asalto violento detenidos carabineros santiago"),
 
-    # ── Portonazo 
+    # ── Portonazo
     ("Portonazo", "portonazo santiago region metropolitana"),
     ("Portonazo", "portonazo detenidos chile"),
     ("Portonazo", "portonazo carabineros santiago"),
+    ("Portonazo", "portonazo vivienda casa santiago"),
+    ("Portonazo", "portonazo las condes vitacura santiago"),
+    ("Portonazo", "portonazo PDI detenidos región metropolitana"),
+    ("Portonazo", "portonazo maipú puente alto santiago"),
 
-    # ── Encerrona 
+    # ── Encerrona
     ("Encerrona", "encerrona santiago region metropolitana"),
     ("Encerrona", "encerrona vehiculo santiago chile"),
     ("Encerrona", "encerrona detenidos carabineros"),
+    ("Encerrona", "encerrona autopista santiago"),
+    ("Encerrona", "encerrona vespucio santiago"),
+    ("Encerrona", "encerrona PDI detenidos santiago"),
+    ("Encerrona", "encerrona robo auto santiago chile"),
+    ("Encerrona", "encerrona menores detenidos santiago"),
 
     # ── Homicidio
     ("Homicidio", "homicidio balacera santiago chile"),
@@ -24,18 +41,37 @@ crimeRadar: list[tuple[str, str]] = [
     ("Homicidio", "asesinato crimen santiago region metropolitana"),
     ("Homicidio", "balacera muertos heridos chile"),
     ("Homicidio", "homicidio investigacion PDI santiago"),
+    ("Homicidio", "hombre muerto baleado santiago chile"),
+    ("Homicidio", "asesinato puente alto la florida"),
+    ("Homicidio", "homicidio san bernardo el bosque santiago"),
+    ("Homicidio", "muerto a tiros santiago region metropolitana"),
+    ("Homicidio", "crimen organizado homicidio santiago"),
+    ("Homicidio", "sicariato ejecutado santiago chile"),
+    ("Homicidio", "cuerpo hallado santiago chile"),
+    ("Homicidio", "triple homicidio balacera santiago"),
 
     # ── Robo Vehículo
     ("Robo Vehiculo", "robo vehiculo auto santiago chile"),
     ("Robo Vehiculo", "robo camioneta furgon santiago"),
     ("Robo Vehiculo", "auto robado recuperado santiago chile"),
     ("Robo Vehiculo", "hurto vehiculo carabineros region metropolitana"),
+    ("Robo Vehiculo", "robo camion carga santiago chile"),
+    ("Robo Vehiculo", "taller clandestino autos robados santiago"),
+    ("Robo Vehiculo", "GPS autos robados recuperados santiago"),
+    ("Robo Vehiculo", "robo vehiculo maipú puente alto"),
+    ("Robo Vehiculo", "clonacion patente autos robados chile"),
+    ("Robo Vehiculo", "robo moto motocicleta santiago chile"),
 
-    # ── Violencia 
+    # ── Violencia
     ("Violencia", "violencia pelea agresion santiago chile"),
     ("Violencia", "riña lesiones graves santiago"),
     ("Violencia", "agresión golpes detenidos santiago chile"),
     ("Violencia", "violencia barrial santiago region metropolitana"),
+    ("Violencia", "apuñalado herido grave santiago chile"),
+    ("Violencia", "pelea masiva santiago barrio"),
+    ("Violencia", "agresion arma blanca cuchillo santiago"),
+    ("Violencia", "violencia nocturna santiago detenidos"),
+    ("Violencia", "riña fatal heridos santiago chile"),
 
     # ── Narcotráfico
     ("Narcotráfico", "narcotrafico droga decomiso santiago chile"),
@@ -43,6 +79,13 @@ crimeRadar: list[tuple[str, str]] = [
     ("Narcotráfico", "banda narcotrafico desarticulada santiago"),
     ("Narcotráfico", "decomiso pasta base santiago region metropolitana"),
     ("Narcotráfico", "operacion antidroga PDI carabineros santiago"),
+    ("Narcotráfico", "microtráfico detenidos santiago chile"),
+    ("Narcotráfico", "punto venta droga santiago allanamiento"),
+    ("Narcotráfico", "droga incautada la pintana el bosque"),
+    ("Narcotráfico", "fentanilo droga decomisada santiago chile"),
+    ("Narcotráfico", "narcotrafico tren de aragua santiago"),
+    ("Narcotráfico", "laboratorio droga clandestino santiago"),
+    ("Narcotráfico", "cocaína marihuana detenidos puente alto"),
 
     # ── Robo General
     ("Robo General", "detenido robo hurto santiago region metropolitana"),
@@ -50,30 +93,66 @@ crimeRadar: list[tuple[str, str]] = [
     ("Robo General", "detenidos hurto feria santiago"),
     ("Robo General", "robo vivienda casa santiago chile"),
     ("Robo General", "sorprendido robando detenido santiago"),
+    ("Robo General", "robo forado joyeria santiago chile"),
+    ("Robo General", "banda robos detenida santiago"),
+    ("Robo General", "robo supermercado retail santiago"),
+    ("Robo General", "hurto especializado detenidos santiago"),
+    ("Robo General", "robo nocturno empresa santiago chile"),
+    ("Robo General", "ladrones atrapados santiago carabineros"),
+    ("Robo General", "robo en transporte público santiago metro"),
 
-    # ── Extorsión / Secuestro 
+    # ── Extorsión / Secuestro
     ("Extorsión", "extorsion amenaza cobro santiago chile"),
     ("Extorsión", "secuestro extorsion region metropolitana"),
     ("Extorsión", "extorsionistas detenidos chile"),
+    ("Extorsión", "secuestro express santiago chile"),
+    ("Extorsión", "cobro piso extorsion negocio santiago"),
+    ("Extorsión", "amenaza muerte extorsion detenidos santiago"),
+    ("Extorsión", "tren de aragua extorsion santiago chile"),
 
     # ── Estafa
     ("Estafa", "estafa engaño victima santiago chile"),
     ("Estafa", "fraude bancario phishing santiago"),
     ("Estafa", "estafadores detenidos PDI santiago"),
+    ("Estafa", "estafa cuento del tío santiago chile"),
+    ("Estafa", "fraude adulto mayor santiago chile"),
+    ("Estafa", "estafa redes sociales compra venta santiago"),
+    ("Estafa", "clonacion tarjeta cajero santiago chile"),
+    ("Estafa", "estafa inversión criptomonedas chile"),
 
-    # ── VIF / Femicidio 
+    # ── VIF / Femicidio
     ("VIF/Femicidio", "femicidio violencia intrafamiliar santiago chile"),
     ("VIF/Femicidio", "femicidio frustrado santiago region metropolitana"),
     ("VIF/Femicidio", "violencia intrafamiliar detenido santiago"),
+    ("VIF/Femicidio", "femicidio consumado chile santiago"),
+    ("VIF/Femicidio", "golpiza pareja conviviente santiago"),
+    ("VIF/Femicidio", "mujer agredida detenido santiago chile"),
+    ("VIF/Femicidio", "orden alejamiento violencia intrafamiliar santiago"),
+    ("VIF/Femicidio", "hombre detenido agresión pareja santiago"),
 
-    # ── Armas 
+    # ── Armas
     ("Armas", "armas incautadas decomisadas santiago chile"),
     ("Armas", "porte arma detenido santiago region metropolitana"),
     ("Armas", "pistola fusil decomisado carabineros santiago"),
+    ("Armas", "arma hechiza decomisada santiago chile"),
+    ("Armas", "fusil kalashnikov incautado santiago"),
+    ("Armas", "granada explosivo decomisado santiago chile"),
+    ("Armas", "tráfico armas detenidos santiago"),
+    ("Armas", "arma ilegal detenido santiago región metropolitana"),
 
-    # ── Seguridad General 
+    # ── Seguridad General
     ("Seguridad General", "carabineros detenidos santiago noche"),
     ("Seguridad General", "PDI operacion detenidos santiago"),
     ("Seguridad General", "formalizado imputado tribunal santiago chile"),
     ("Seguridad General", "fiscalia formalizacion delito santiago"),
+    ("Seguridad General", "operativo policial santiago region metropolitana"),
+    ("Seguridad General", "control identidad detenidos santiago"),
+    ("Seguridad General", "prision preventiva imputado santiago chile"),
+    ("Seguridad General", "allanamiento detenidos santiago carabineros"),
+    ("Seguridad General", "banda criminal desarticulada santiago"),
+    ("Seguridad General", "detenidos flagrancia santiago noche"),
+    ("Seguridad General", "tren de aragua detenidos chile"),
+    ("Seguridad General", "crimen organizado operacion santiago chile"),
+    ("Seguridad General", "imputado formalizado juzgado santiago"),
+    ("Seguridad General", "reincidente detenido santiago carabineros PDI"),
 ]
